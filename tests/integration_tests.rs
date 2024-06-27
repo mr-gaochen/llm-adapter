@@ -1,9 +1,9 @@
 #[cfg(test)]
 mod tests {
     use dotenv::dotenv;
-    use llm_bridge::client::{ClientLlm, LlmClient};
-    use llm_bridge::error::ApiError;
-    use llm_bridge::models::ResponseMessage;
+    use llm_adapter::client::{ClientLlm, LlmClient};
+    use llm_adapter::error::ApiError;
+    use llm_adapter::models::ResponseMessage;
     use pretty_assertions::assert_eq;
 
     #[tokio::test]
@@ -52,14 +52,14 @@ mod tests {
             .send()
             .await
             .expect("Failed to send message");
-        println!("Response: {:?}", response);
+        println!("Response: {:?}", response.first_message());
         // Assert the response
     }
 
     #[tokio::test]
     async fn test_send_message_qweb() {
         dotenv().ok();
-        let api_key = "sk-c34f8d37919f4027a057641dce0ee32a".to_string();
+        let api_key = "".to_string();
         let client_type = ClientLlm::ALI;
         let mut client = LlmClient::new(client_type, api_key);
 
@@ -72,6 +72,7 @@ mod tests {
             .await
             .expect("Failed to send message");
         println!("Response: {:?}", response);
+        println!("Response: {:?}", response.first_message());
         // Assert the response
     }
 
