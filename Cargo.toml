@@ -1,11 +1,11 @@
 [package]
-name = "llm-bridge"
+name = "llm-adapter"
 version = "0.1.1"
 edition = "2021"
-authors = ["Sam Keen <sam.sjk@gmail.com>"]
+authors = ["GaoChen <zhupenghuyou@gmail.com>"]
 description = "SDK for interacting with various Large Language Model (LLM) APIs using a common interface"
 license = "MIT"
-repository = "https://github.com/samkeen/llm-bridge"
+repository = "https://github.com/wooyulan/llm-adapter.git"
 
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
@@ -19,5 +19,5 @@ async-trait = "0.1.80"
 
 [dev-dependencies]
 dotenv = "0.15.0"
-tokio = { version = "1.37.0", features = ["rt-multi-thread","rt", "macros"] }
+tokio = { version = "1.37.0", features = ["rt-multi-thread", "rt", "macros"] }
 pretty_assertions = "1.4.0"
