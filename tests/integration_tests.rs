@@ -46,7 +46,7 @@ mod tests {
 
         let response = client
             .request()
-            .model("qwen-turbo")
+            .model("gpt-4o-mini")
             .user_message("你好!")
             .system_prompt("你是一个计算机博士")
             .send()

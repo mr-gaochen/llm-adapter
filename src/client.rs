@@ -14,14 +14,13 @@ use crate::models::{Message, RequestBody, ResponseMessage};
 use log::{debug, error};
 use reqwest::Client;
 
-const API_ENDPOINT: &str =
-    "https://dashscope.aliyuncs.com/api/v1/services/aigc/text-generation/generation";
+const API_ENDPOINT: &str = "";
 const API_VERSION: &str = "2023-06-01";
 const DEFAULT_ANTHROPIC_MODEL: &str = "qwen-turbo";
 
-const DEFAULT_OPENAI_MODEL: &str = "qwen-turbo";
+const DEFAULT_OPENAI_MODEL: &str = "gpt-4o-mini";
 const DEFAULT_QWEN_MODEL: &str = "qwen-turbo";
-const DEFAULT_MAX_TOKENS: u32 = 6;
+const DEFAULT_MAX_TOKENS: u32 = 1024;
 const DEFAULT_TEMP: f32 = 0.0;
 
 /// Supported LLMs
@@ -247,8 +246,6 @@ impl LlmClientTrait for AnthropicClient {
         //   }
         // }
         //
-
-        println!("key:{}", &self.api_key);
 
         let response = self
             .client
